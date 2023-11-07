@@ -1,0 +1,85 @@
+.content-head select, .content-head input, #searchModal form select, #searchModal form input, #searchModal form .selectize-control  {
+	width: auto;
+	max-width: 150px;
+	min-width: 100px;
+}
+
+#searchModal form .selectize-control  {
+	min-width: 130px;
+}
+
+#searchModal form select:not(:last-child), #searchModal form input:not(:last-child), #searchModal form .selectize-control:not(:last-child) {
+	margin-right: 5px;
+}
+
+/* --------------------------------
+Selectize override
+-------------------------------- */
+.selectize-dropdown,
+.selectize-input,
+.selectize-input input {
+ 	font-size: .875rem;
+ 	color: #495057;
+}
+
+.selectize-input {
+	border: 1px solid #ced4da;
+	padding: .25rem .5rem;
+	font-size: .875rem;
+	line-height: 1.5;
+	border-radius: .2rem;
+}
+
+
+/* --------------------------------
+Datatables styles
+-------------------------------- */
+.dataTables_wrapper th, .dataTables_wrapper td {
+    font-size: 14px;
+    text-align: center;
+    padding: 7px 7px 7px 5px !important;
+}
+
+.dataTables_wrapper tr.group td {
+	background: #fff5f5 !important;
+	color: #ef2222;
+	font-weight: 600;
+}
+
+.dataTables_wrapper thead th, .dataTables_wrapper tfoot td {
+	text-transform: uppercase;
+}
+
+.dataTables_wrapper thead th {
+	border-bottom: 1px solid #dee2e6 !important;
+}
+
+.dataTables_wrapper tfoot td {
+	font-weight: 600;
+	border-top: 2px solid #dee2e6 !important;
+}
+
+.calendar-x th, .calendar-x td {
+	font-size: 12px;
+	white-space: nowrap;
+}
+
+.font-bold {
+	font-weight: 600;
+}
+
+.tbloptions {
+    background-color: #ffffff !important;
+    color: grey;
+    border: 1px solid whitesmoke !important;
+    padding: 6px 12px !important;
+}
+
+.tbloptions:hover {
+	background-color: whitesmoke !important;
+}
+
+.toolbar .dropdown-menu .icon {
+	width: 20px;
+	color: grey;
+}

@@ -1,0 +1,18 @@
+<table class="table table-striped" id="tableScan">
+
+<thead>
+    <tr>
+        <th scope="col">SN</th>
+        <th scope="col">Barcode</th>
+        <th scope="col">Product</th>
+        <th scope="col">Status</th>
+        <th scope="col">Weight</th>
+        <th scope="col">Remove</th>
+    </tr>
+</thead>
+<tbody class="my-tbody" id="my-tbody">
+
+<tbody>
+
+
+</table>

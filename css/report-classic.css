@@ -1,0 +1,137 @@
+.w3-btn { padding: 4px 20px; }
+
+#tableWrap1, #tableWrap2, #tableWrap3 { min-height: 45vh; border-color: whitesmoke !important; }
+
+.w3-third table td:nth-child(2), #calendar table td:nth-child(1) { text-align: left !important; }
+
+#calendar table th, #calendar table td { font-size: 10px !important; }
+
+table#monthly tr th, table#monthly tr td { font-size: 11px !important; }
+
+#tableWrap1 .btn-holder, #tableWrap2 .btn-holder, #tableWrap3 .btn-holder { margin: 3px 0 }
+
+.calendar .btn-holder { position: absolute; top: 15px; right: 30px; }
+
+.btn-holder i { cursor: pointer; }
+
+.btn-holder .fa-print { color: blue; }
+
+.btn-holder .fa-file-excel-o { color: green; }
+
+.calendar table tbody tr.group td { border-bottom: 2px solid #ef2222 !important; }
+
+.calendar table tfoot tr td { color: blue !important; }
+
+#calendarTotal { max-width: 1000px; margin: 0 auto 30px; }
+
+.max-width-more { max-width: 1170px !important; }
+
+#calendarTotal td { font-size: 13px !important; font-weight: 600; border-right: 2px solid #333 !important; }
+
+#calendarTotal td:last-child { border: 0 !important; }
+
+#content { opacity: 0; -webkit-transition: opacity 2s ease-in 1s; transition: opacity 2s ease-in 1s;}
+
+#content th, #content td { font-size: 11px; }
+
+#content table thead tr th { background-color: #333; color: #E8E8E8; border-bottom: 1px solid #aaa; }
+
+.w3-third table tbody tr td { border-bottom: 1px solid #aaa; }
+
+#content table tfoot tr th, table tfoot tr td { background-color: #e8eaf5; }
+
+.dataTables_scrollBody table thead tr, .dataTables_scrollBody table tfoot tr { visibility: collapse !important; } 
+
+.accordion-wrap { width: 400px; }
+
+.shutter-panel-collapse {
+  	overflow: visible;
+  	display: none;
+	position: absolute;
+	width: 700px;
+	min-height: 500px;
+	border-radius: .3rem;
+}
+ul li a.panel-heading {
+	color: #FFFFFF;
+	text-decoration: none;
+  	display: block;
+  	background: #607d8b;
+  	width: 100%;
+	max-width: 400px;
+	padding: 3px 5px;
+	border-radius: 7px 0 7px 0;
+  	transition: background .3s ease;
+}
+ul li a.panel-heading:hover {
+	background: rgba(0, 0, 0, 1);
+}
+ul.shutter-panel-collapse li a.panel-heading {
+	width: 100%;
+}
+div.shutter-panel-collapse, .shutter-panel-collapse li {
+	background-color: #fff;
+	z-index: 100;
+}
+
+div.ms-drop { right: initial !important; text-align: left; }
+
+
+
+#calendar tr{
+  display: flex;
+}
+
+#calendar th, #calendar td{
+  border-bottom: 1px solid #aaa;
+  border-left: 1px solid #aaa;
+  width: 39.5px;
+}
+
+#calendar th:nth-child(1), #calendar td:nth-child(1) { width: 100px; white-space: initial; }
+
+#calendar th:nth-child(2), #calendar td:nth-child(2) { width: 50px; }
+
+#calendar tr td:last-child, #calendar tr th:last-child{
+  border-right: 1px solid #aaa;
+}  
+
+#calendar thead tr:after{
+  content: '';
+  overflow-y: scroll;
+  visibility: hidden;
+  height: 0;
+}
+
+#calendar thead th, #calendar tfoot{
+  display: block;
+}
+
+#calendar tbody{
+  max-height: 320px;
+  display: block;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+#calendarTotal td span.on, #calendar td span.on { color: blue; }
+
+#calendarTotal td span.weight, #calendar td span.weight { color: green; word-wrap: break-word; }
+
+
+
+
+
+
+
+@media print {
+	/*@page { size: A4 landscape; margin: 0; }*/
+	body { width:100% !important; margin:0 !important; padding:0 !important; background: none; }
+	h1, h2, h3, h4, h5, h6 { page-break-after:avoid; }
+	table, figure, .avoid-break { /*page-break-inside: avoid;*/ }
+	thead { display: table-row-group }
+	footer { display: none; }
+	.overflow { display: initial !important; width: initial !important; overflow-x: initial !important; }
+	.display-print-none, .print-off { display: none; }
+	.main-content { margin: 0 !important; padding: 1px !important; }	
+}

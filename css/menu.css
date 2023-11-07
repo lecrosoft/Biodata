@@ -1,0 +1,469 @@
+/* --------------------------------
+
+Primary style
+
+-------------------------------- */
+
+html,
+body {
+  /* you need to set this to assign to the main element a min height of 100% */
+  height: 100%;
+  font-family: Open Sans;
+}
+#lateral-nav a {
+  text-decoration: none;
+  color: #f8f8f8;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  transition: all 0.3s;
+}
+
+#lateral-nav a:hover {
+  background-color: #e8e8e8;
+  color: #060606;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+#lateral-nav a.active {
+  background-color: #03f;
+  color: #efefef;
+}
+
+/* --------------------------------
+
+Modules - reusable parts of our design
+
+-------------------------------- */
+.img-replace {
+  /* replace text with a background-image */
+  display: inline-block;
+  overflow: hidden;
+  text-indent: 100%;
+  white-space: nowrap;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+/* --------------------------------
+
+Main components
+
+-------------------------------- */
+.main-content {
+  /* set a min-height and a z-index to be sure that the main element completely covers the lateral menu */
+  min-height: 100%;
+  position: relative;
+  z-index: 1;
+  padding-top: 45px;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+.main-content.lateral-menu-is-open {
+  /* translate to show the lateral menu - all content needs to be put in the .main-content to translate
+  -webkit-transform: translateX(-220px);
+  -moz-transform: translateX(-220px);
+  -ms-transform: translateX(-220px);
+  -o-transform: translateX(-220px);
+  transform: translateX(-220px); */
+}
+@media only screen and (min-width: 768px) {
+  .main-content {
+    padding-top: 45px;
+  }
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 45px;
+  width: 100%;
+  background: #060606;
+  z-index: 2;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.4s;
+  -moz-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+header.lateral-menu-is-open {
+  /* translate to show the lateral menu */
+  -webkit-transform: translateX(-220px);
+  -moz-transform: translateX(-220px);
+  -ms-transform: translateX(-220px);
+  -o-transform: translateX(-220px);
+  transform: translateX(-220px);
+}
+header.is-fixed {
+  position: fixed;
+}
+@media only screen and (max-width: 768px) {
+  header {
+    height: 45px;
+  }
+}
+
+div.nav {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  padding: 0 20px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/*.nav .nav-header .nav-logo {
+  display: inline-block;
+  padding: 5px 0.6% 0 9%;
+  float: left;
+  margin-right: 3%;
+}
+
+.nav .nav-header .nav-logo2 {
+  display: inline-block;
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 35px;
+  letter-spacing: -5px;
+  color: #fff;
+  padding: 10px 0.6% 10px 0.6%;
+  float: left;
+  margin-left: 30%;
+}
+*/
+/*
+.nav .nav-btn {
+  display: none;
+}
+
+.nav .nav-links {
+  display: inline;
+  float: left;
+  font-size: 16px;
+}
+
+.nav .nav-links a {
+  display: inline-block;
+  padding: 13px 10px 13px 10px;
+}
+
+.nav #nav-check {
+  display: none;
+}
+
+@media (max-width:1000px) {
+	.nav {
+		height: 50px;
+	}
+	.nav .nav-links {
+  		font-size: 14px;
+	}
+}
+
+@media (max-width:800px) {
+  .nav .nav-btn {
+    display: inline-block;
+    position: absolute;
+    left: 44%;
+    top: 0px;
+  }
+  .nav .nav-btn label {
+    display: inline-block;
+    width: 55px;
+    height: 50px;
+    padding: 15px;
+  }
+  .nav .nav-btn label:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+  }
+  .nav .nav-btn label > span {
+    display: block;
+    width: 25px;
+    height: 10px;
+    border-top: 2px solid #eee;
+  }
+  .nav .nav-links {
+    position: absolute;
+    display: block;
+    width: 70%;
+    background-color: #333;
+    transition: all 0.3s ease-in;
+    overflow-y: hidden;
+    top: 47px;
+    right: 0px;
+  }
+  .nav .nav-links a {
+    display: block;
+    width: 100%;
+	-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+  }
+  .nav #nav-check:not(:checked) + .nav-links {
+    height: 0px;
+  }
+  .nav #nav-check:checked + .nav-links {
+    height: calc(100vh - 50px);
+    overflow-y: auto;
+  }
+}
+*/
+
+#menu-trigger {
+  display: inline-flex;
+  align-items: center;
+  color: white;
+  text-decoration: none;
+}
+
+#menu-trigger:hover {
+  text-decoration: none;
+}
+
+#menu-trigger .menu-text {
+  text-transform: uppercase;
+  font-weight: 600;
+  display: none;
+}
+#menu-trigger .menu-icon {
+  /* this span is the central line in the menu menu */
+  display: inline-block;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -moz-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  -o-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+  width: 18px;
+  height: 2px;
+  background-color: white;
+  /* these are the upper and lower lines in the menu menu */
+}
+#menu-trigger .menu-icon::before,
+#menu-trigger .menu-icon:after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: inherit;
+  left: 0;
+}
+#menu-trigger .menu-icon::before {
+  bottom: 5px;
+}
+#menu-trigger .menu-icon::after {
+  top: 5px;
+}
+#menu-trigger.is-clicked .menu-icon {
+  background-color: rgba(255, 255, 255, 0);
+}
+#menu-trigger.is-clicked .menu-icon::before,
+#menu-trigger.is-clicked .menu-icon::after {
+  background-color: white;
+}
+#menu-trigger.is-clicked .menu-icon::before {
+  bottom: 0;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+#menu-trigger.is-clicked .menu-icon::after {
+  top: 0;
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -ms-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+@media only screen and (min-width: 768px) {
+  #menu-trigger .menu-text {
+    display: inline-block;
+  }
+  #menu-trigger .menu-icon {
+    margin-left: 7px;
+    -webkit-transform: translateX(0);
+    -moz-transform: translateX(0);
+    -ms-transform: translateX(0);
+    -o-transform: translateX(0);
+    transform: translateX(0);
+  }
+}
+
+#lateral-nav {
+  font-weight: 600;
+  font-size: 15px;
+  position: fixed;
+  height: 100%;
+  right: 0;
+  top: 0;
+  visibility: hidden;
+  /* the secondary navigation is covered by the main element */
+  z-index: 3;
+  width: 235px;
+  background: #060606;
+  overflow-y: auto;
+  /* Force Hardware Acceleration in WebKit */
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+  -webkit-transition: -webkit-transform 0.4s 0s, visibility 0s 0.4s;
+  -moz-transition: -moz-transform 0.4s 0s, visibility 0s 0.4s;
+  transition: transform 0.4s 0s, visibility 0s 0.4s;
+  /* this creates the subtle slide in animation of the navigation */
+  -webkit-transform: translateX(80px);
+  -moz-transform: translateX(80px);
+  -ms-transform: translateX(80px);
+  -o-transform: translateX(80px);
+  transform: translateX(80px);
+}
+
+#lateral-nav .logo {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+#lateral-nav .sub-menu {
+  padding: 0 7px 15px 10px;
+  display: none;
+  font-size: 13px;
+  font-weight: 300;
+}
+#lateral-nav a {
+  display: block;
+  line-height: 32px;
+  padding: 0 10px 0 15px;
+}
+
+#lateral-nav.lateral-menu-is-open {
+  -webkit-transform: translateX(0);
+  -moz-transform: translateX(0);
+  -ms-transform: translateX(0);
+  -o-transform: translateX(0);
+  transform: translateX(0);
+  visibility: visible;
+  -webkit-transition: -webkit-transform 0.4s 0s, visibility 0s 0s;
+  -moz-transition: -moz-transform 0.4s 0s, visibility 0s 0s;
+  transition: transform 0.4s 0s, visibility 0s 0s;
+  /* smooth the scrolling on touch devices - webkit browsers */
+  -webkit-overflow-scrolling: touch;
+}
+
+/* style menu items which have a submenu  */
+#lateral-nav .item-has-children > a {
+  position: relative;
+  text-transform: capitalize;
+  /* this is the right arrow to show that the item has a submenu  */
+}
+#lateral-nav .item-has-children > a::after {
+  content: "";
+  display: block;
+  height: 11px;
+  width: 8px;
+  position: absolute;
+  top: 50%;
+  bottom: auto;
+  -webkit-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -o-transform: translateY(-50%);
+  transform: translateY(-50%);
+  right: 16px;
+  background: url("../images/arrow.svg") no-repeat center center;
+  background-size: 8px 11px;
+  -webkit-transition-property: -webkit-transform;
+  -moz-transition-property: -moz-transform;
+  transition-property: transform;
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+#lateral-nav .item-has-children > a.submenu-open::after {
+  -webkit-transform: translateY(-50%) rotate(90deg);
+  -moz-transform: translateY(-50%) rotate(90deg);
+  -ms-transform: translateY(-50%) rotate(90deg);
+  -o-transform: translateY(-50%) rotate(90deg);
+  transform: translateY(-50%) rotate(90deg);
+}
+
+#lateral-nav .socials:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#lateral-nav .socials a {
+  width: 85px;
+  height: 40px;
+  margin: auto;
+  padding: 0;
+  background-image: url("../images/GDS-2.png");
+  background-repeat: no-repeat;
+}
+.no-touch #lateral-nav .socials a:hover {
+  background-color: #4e6361;
+}
+
+@media print {
+  @page {
+    margin: 0;
+  }
+  /* body { margin: 1.6cm; } */
+}
+.steps {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+  margin-bottom: 2rem !important;
+}
+.step-bullet {
+  display: flex;
+  height: 30px;
+  width: 30px;
+  background-color: #ccc;
+  border-radius: 50%;
+  padding: 15px;
+  align-items: center;
+  align-self: center;
+  align-content: center;
+  justify-content: center;
+}
+.step {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.activeStep {
+  background-color: #03f;
+  color: #fff;
+}
+.butonDiv {
+  display: flex;
+  justify-content: space-between;
+}
+.biodataForm {
+  padding: 2rem;
+}
+.formStep {
+  display: none;
+}
+.activeForm {
+  display: block;
+}

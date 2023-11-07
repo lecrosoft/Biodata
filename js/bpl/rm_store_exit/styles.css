@@ -1,0 +1,53 @@
+.xcontain{
+    
+    display: flex;
+    height: 100vh;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.contain{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.flex1{
+    flex:1 1 30%;
+    width: 100%;
+    padding: 10px;
+    
+  
+}
+.flex2{
+    flex: 1 1 70%;
+    width: 100%;
+   
+    display: flex;
+    padding:10px;
+    flex-direction: column;
+}
+
+.cover{
+    margin-bottom: 10px;
+}
+
+.coverx{
+    margin-top: 30px;
+}
+
+.coverx > input{
+
+    background-color: #5aa9ff;
+    color:#fff
+}
+
+.closed{
+    cursor: pointer;
+}
+
+
+
+
+

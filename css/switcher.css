@@ -1,0 +1,36 @@
+ul.switch li, ul.switcher {
+    line-height: initial;
+}
+
+ul.switch li, ul.switcher li{
+  background-color: #494949;
+  color: #E5E5E5;
+  font-family: Tahoma, Geneva, sans-serif;
+  font-size: 14px;
+  float: left;
+  padding: 5px 14px;
+  cursor: pointer;
+}
+
+ul.switch li:hover, ul.switcher li:hover{
+  background-color: #555;
+  color: white;
+}
+
+ul.switch li.active, ul.switcher li.active{
+  background-color: #a8cf45;
+  color: white;
+}
+
+ul.switch li.active { background-color: #007bff }
+
+ul.switch li:first-child, ul.switcher li.first{
+  border-right: 1px solid #8D8D8D;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+ul.switch li:last-child, ul.switcher li.last{
+  border-top-right-radius: 3px;
+  border-bottom-right-radius: 3px;
+}

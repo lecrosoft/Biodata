@@ -1,0 +1,104 @@
+.container-single {
+	display: grid;
+	/*This line below is what makes the responsiveness*/
+	grid-template-columns: repeat(1, minmax(350px, 1fr));
+	padding: 4px;
+	justify-content: center;
+	align-content: center;
+}
+.container-single-report {
+	display: grid;
+	/*This line below is what makes the responsiveness*/
+	grid-template-columns: repeat(1, minmax(350px, 1fr));
+	justify-content: center;
+	align-content: center;
+}
+.item-single{
+	text-align: center;
+	height: auto;
+	margin-top: 0;
+}
+.item-single-report{
+	text-align: left;
+	height: auto;
+	margin-top: 0;
+}
+.responsive-table-single {
+   vertical-align: top;
+   min-width: 100%;
+   overflow-x: auto;
+   white-space: nowrap;
+   border-collapse: collapse;
+   border-spacing: 0;
+   height: auto;
+}
+#container_tableheader th{
+	background-color: #607D8B!important;
+}
+th, td {
+   padding: 10px 15px;
+   border: 1px solid #DEDEDE;
+}
+th {
+   font-size: 12px;
+   text-align: center;
+   text-transform: uppercase;
+   }
+td {
+   font-size: 12px;
+   }
+td:first-child, &--flip tbody tr:first-child {
+   background-image: linear-gradient(to right, #fff 50%, transparent 100%);
+   background-repeat: no-repeat;
+   background-size: 20px 100%;
+}
+td:last-child, &--flip tbody tr:last-child {
+   background-image: linear-gradient(to left, #fff 50%, transparent 100%);
+   background-repeat: no-repeat;
+   background-position: 100% 0;
+   background-size: 20px 100%;
+}
+&,   &--flip tbody {
+   background: radial-gradient(left, ellipse, rgba(0, 0, 0, 0.2) 0%, transparent 75%) 0 center, radial-gradient(right, ellipse, rgba(0, 0, 0, 0.2) 0%, transparent 75%) 100% center;
+   background-size: 10px 100%, 10px 100%;
+   background-attachment: scroll;
+   background-repeat: no-repeat;
+   -webkit-overflow-scrolling: touch;
+}
+
+tbody {
+   overflow-y: auto;
+      }
+&--flip {
+   display: flex;
+   overflow: hidden;
+   background: none;
+      thead {
+         display: flex;
+         flex-shrink: 0;
+         min-width: min-content;
+      }
+
+      th,
+      td {
+         display: block;
+      }
+
+      &,
+      tr {
+         display: flex;
+         flex-direction: column;
+         min-width: min-content;
+         flex-shrink: 0;
+      }
+
+      td {
+         background-image: none !important;
+         border-left: 0;
+      }
+
+      th:not(:last-child),
+      td:not(:last-child) {
+         border-bottom: 0;
+      }
+}

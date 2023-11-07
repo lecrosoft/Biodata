@@ -1,0 +1,101 @@
+.contain{
+    width: 100%;
+    text-align: center;
+   
+}
+
+.tabs{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    background-color: #000;
+    
+
+}
+
+.tabs > div{
+    flex:1 1 cal(33.333% - 20px);
+    width: 100%;
+    margin: 10px;
+}
+
+.tabs-2{
+    display: flex;
+    width: 100%;
+    text-align: center;
+    justify-content: space-around;
+    margin-bottom: 10px;
+    
+   
+    
+}
+.tabs-2 > div{
+    flex:1 1 cal(25% - 20px);
+    width: 100%;
+    margin: 40px;
+
+   
+}
+
+
+.scan{
+    margin-top: 20px;
+}
+
+table{
+    margin-top: 10px;
+}
+
+.SaveDiv{
+   
+    display: flex;
+    align-items: flex-end;
+
+
+}
+
+.return{
+    background-color: #008bcd;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.return > h3{
+    color:#fff;
+}
+
+.label{
+    margin-left: 10px;
+}
+
+#scanbarcode{
+    width: 100%;
+    
+}
+
+.returnScanner{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.returnScanner input{
+    margin-right: 10px;
+}
+
+.form-control-me{
+    width: 50%;
+    height: 40px;
+}
+
+.weightedit{
+    text-align: center;
+    width: 200px;
+}

@@ -1,0 +1,43 @@
+table { margin: 0; }
+
+.responsive-table-single { min-width: 100%; }
+
+th, td { padding: 2px 7px; font-size: 11px; }
+
+tfoot td { background-color: #f1f1f1!important; font-size: 12px; font-weight: bold; margin-bottom: 5px; }
+
+.date { max-width: 180px; padding: 2px 5px; margin: 2px 0 2px; }
+
+/*Tabs AND Accordion Start*/
+ul.tabs ul.accordion { margin: 0; padding: 0px; list-style: none; text-align: left; }
+
+ul.tabs li { color: #060606; display: inline-block; padding: 7px 5px; cursor: pointer; }
+
+ul.tabs li.current { background: #607d8b; color: #FFFFFF; border-radius: 7px 0 7px 0; }
+
+ul.accordion li { margin: 5px 0; }
+
+.shutter-panel-collapse { padding-left: 3px; overflow: visible; display: none; position: absolute; width: 100%; max-width: 400px; margin: 0 10px 0; }
+
+ul li a.panel-heading { color: #FFFFFF; text-decoration: none; display: block; background: #607d8b; width: 90%; max-width: 400px; padding: 3px 5px; margin: 0 10px 5px; border-radius: 7px 0 7px 0; transition: background .3s ease; }
+
+ul li a.panel-heading:hover { background: rgba(0, 0, 0, 1); }
+
+ul.shutter-panel-collapse li a.panel-heading { width: 100%; }
+
+div.shutter-panel-collapse, .shutter-panel-collapse li { background-color: #FAFAFA; font-size: 12px; z-index: 100; }
+/*Tabs AND Accordion End*/
+
+.title, .title2{ margin-bottom: 5px; }
+
+#container_tableheader{ max-height: 500px; overflow-y: auto; }
+
+#loading-linear { width: 100%; height: 5px; margin: 10px auto; background: transparent; position:relative; }
+
+.linear-spinner { width: 100%; height: 1px; margin: 2px 0; background: #2187e7; position: absolute; box-shadow: 0px 0px 10px 1px rgba(0,198,255,0.7); -moz-animation: fullexpand 5s infinite ease-out; -webkit-animation: fullexpand 5s infinite ease-out; }
+
+div.mmdiv1 { position: relative; margin-right: 8px; height: 533px; text-align: center; }
+
+div.processing.card { position: absolute; top: 50%; left: 50%; width: 200px; margin-left: -100px; margin-top: -26px; text-align: center; padding: .8em 0; }
+
+.card { position: relative; display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: vertical; -webkit-box-direction: normal; -ms-flex-direction: column; flex-direction: column; min-width: 0; word-wrap: break-word; background-color: #fff; background-clip: border-box; border: 1px solid rgba(0, 0, 0, 0.125); border-radius: 0.25rem; }

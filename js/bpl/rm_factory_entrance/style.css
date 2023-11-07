@@ -1,0 +1,23 @@
+.factoryEntrance{
+    font-family: 'Jura',sans-serif;
+    font-size: 25px;
+}
+.selectTool{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.selectTool > div{
+   
+    flex:1 1 calc(33.333% - 20px);
+    margin: 10px;
+    width: 100%;
+    
+}
+
+.selectTool > div label{
+    font-weight: bold;
+}

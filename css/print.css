@@ -1,0 +1,45 @@
+
+@page { size: A4; margin: 0; }
+
+body { 
+width:100% !important;
+margin:0 !important;
+padding:0 !important;
+line-height: 1.45; 
+font-family: "Trebuchet MS",Garamond,"Times New Roman", serif; 
+color: #000; 
+background: none; 
+font-size: 13pt; }
+
+h1, h2, h3, h4, h5, h6 { page-break-after:avoid; }
+
+table, figure, .avoid-break { page-break-inside: avoid; }
+
+thead { display: table-row-group }
+
+img { float: left; margin: 1em 1.5em 1.5em 0; max-width: 100% !important; }
+a img { border: none; }
+
+a:link, a:visited { background: transparent; font-weight: 700; text-decoration: underline;color:#333; }
+a:link[href^="http://"]:after, a[href^="http://"]:visited:after { content: " (" attr(href) ") "; font-size: 90%; }
+
+abbr[title]:after { content: " (" attr(title) ")"; }
+
+/* Don't show linked images  */
+a[href^="http://"] {color:#000; }
+a[href$=".jpg"]:after, a[href$=".jpeg"]:after, a[href$=".gif"]:after, a[href$=".png"]:after { content: " (" attr(href) ") "; display:none; }
+
+/* Don't show links that are fragment identifiers, or use the `javascript:` pseudo protocol .. taken from html5boilerplate */
+a[href^="#"]:after, a[href^="javascript:"]:after {content: "";}
+
+footer { display: none; }
+
+.w3-responsive {
+    display: initial;
+    width: initial;
+    overflow-x: initial;
+}
+
+.display-print-none { display: none; }
+
+.main-content { margin: 0 !important; padding: 1px !important; }
