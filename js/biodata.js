@@ -9,25 +9,40 @@ $(".dropify-fr").dropify({
     error: "Désolé, le fichier trop volumineux",
   },
 });
-
+let formMethod;
 let formPageNum = 0;
 const nextButton = document.querySelectorAll(".next");
 const previousButton = document.querySelectorAll(".previous");
 const formSteps = document.querySelectorAll(".formStep");
 const stepBullet = document.querySelectorAll(".step-bullet");
 let form = document.querySelector("#form");
-let submitFormPartially = form.addEventListener("submit", function (e) {
-  e.preventDefault();
-});
+// let submitFormPartially = form.addEventListener("submit", function (e) {
+//   e.preventDefault();
+// });
 
 for (d of nextButton) {
-  d.addEventListener("click", function () {
-    // e.preventDefault();
-    formPageNum++;
-    updateFormSteps();
-    updateFormBullets();
+  d.addEventListener("click", function (e) {
+    e.preventDefault();
+
+    // Check the overall form validity for visible elements
+    if (checkValidityForVisibleFields()) {
+      formPageNum++;
+      updateFormSteps();
+      updateFormBullets();
+    } else {
+      // Display an error message or handle the validation error here
+      alert("Please fill out all required fields.");
+    }
   });
 }
+
+function checkValidityForVisibleFields() {
+  let visibleFields = Array.from(
+    form.querySelectorAll("input, select, textarea")
+  ).filter((field) => field.offsetParent !== null); // Check for visibility
+  return visibleFields.every((field) => field.checkValidity());
+}
+
 for (d of previousButton) {
   d.addEventListener("click", function (e) {
     e.preventDefault();
@@ -57,20 +72,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const statesSelect = document.getElementById("states");
   const citiesSelect = document.getElementById("cities");
   let autToken;
-  // Fetch the list of countries from the API
 
-  // Generate Token
-  // var req = unirest(
-  //   "GET",
-  //   "https://www.universal-tutorial.com/api/getaccesstoken"
-  // );
-
-  // req.headers({
-  //   Accept: "application/json",
-  //   "api-token":
-  //     "Pd5-YrIQwAVv_JshWLQCN6Ye1lwUDe9KUFsMSQyjaGJ7bcOqomTt2lkpJezGok9UAQY",
-  //   "user-email": "lecrosoft@gmail.com",
-  // });
   const getCountries = async function () {
     try {
       const request = await fetch(
@@ -120,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   };
 
-  getCountries();
+  //getCountries();
 
   // ================================================= END OF TOKEN ==========================
 
@@ -130,6 +132,15 @@ document.addEventListener("DOMContentLoaded", function () {
     statesSelect.innerHTML = "";
     citiesSelect.innerHTML = "";
 
+    const defaultOption = document.createElement("option");
+    defaultOption.value = "";
+    defaultOption.text = "Select State";
+    statesSelect.appendChild(defaultOption);
+
+    let defaultOptionTwo = document.createElement("option");
+    defaultOptionTwo.value = "";
+    defaultOptionTwo.text = "Select City";
+    citiesSelect.appendChild(defaultOptionTwo);
     // Fetch the list of states for the selected country
     const selectedCountry = countriesSelect.value;
 
@@ -172,7 +183,10 @@ document.addEventListener("DOMContentLoaded", function () {
   statesSelect.addEventListener("change", function () {
     // Clear the cities dropdown
     citiesSelect.innerHTML = "";
-
+    defaultOptionTwo = document.createElement("option");
+    defaultOptionTwo.value = "";
+    defaultOptionTwo.text = "Select City";
+    citiesSelect.appendChild(defaultOptionTwo);
     // Fetch the list of cities for the selected state (You may need to use another API or data source for this)
     const selectedState = statesSelect.value;
 

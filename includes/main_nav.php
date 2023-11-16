@@ -18,8 +18,8 @@
 
 		?>
 			<a href="biodata">Biodata</a>
-			<!-- <a href="sub_unit">Sub Unit</a>
-			<a href="maintenance">Maintenance</a> -->
+			<!-- <a href="sub_unit">Sub Unit</a> -->
+			<a href="profiles" target="_">Profiles</a>
 			<li class="item-has-children main-hold">
 				<a autorun>Reports</a>
 				<ul class="sub-menu">

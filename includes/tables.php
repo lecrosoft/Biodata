@@ -76,6 +76,46 @@ function reportTable()
         </div>
     </div>';
 }
+function profileTable()
+{
+
+    echo '<div class="card shadow mb-4" style="width:100%">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary">Report</h6>
+        </div>
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered2222" id="dataTable" width="100%" cellspacing="0" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Fullname</th>
+                            <th>Gender</th>
+                            <th>Religion</th>
+                            <th>Lebanese Phone No.</th>
+                            <th>Registration No.</th>
+                            <th>Emergency No.</th>
+                            <th>Actions</th>
+                           
+                        </tr>
+                    </thead>
+                    <tfoot>
+                        <tr>
+                            <th>Fullname</th>
+                            <th>Gender</th>
+                            <th>Religion</th>
+                            <th>Lebanese Phone No.</th>
+                            <th>Registration No.</th>
+                            <th>Emergency No.</th>
+                            <th>Actions</th>
+
+                        </tr>
+                    </tfoot>
+
+                </table>
+            </div>
+        </div>
+    </div>';
+}
 
 
 function

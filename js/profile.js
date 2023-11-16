@@ -1,7 +1,7 @@
 $(document).ready(function () {
   let formMethod;
-  let machine_value = $("#machine_value").val();
-  let repair_type = $("#repair_type").val();
+  let religion = $("#religion").val();
+  let country = $("#country").val();
   let from = $("#from").val();
   let to = $("#to").val();
 
@@ -9,7 +9,7 @@ $(document).ready(function () {
   let table = "";
 
   let title = document.querySelector("#page_title");
-  title.innerHTML = `<h1 class="h3 mb-0 text-gray-800">Maintenence Report From <span style="font-size:21px;color:blue;font-weight:bold">${from}</span> To <span style="font-size:21px;color:blue;font-weight:bold">${to}</span></h1>`;
+  title.innerHTML = `<h1 class="h3 mb-0 text-gray-800">Profile From <span style="font-size:21px;color:blue;font-weight:bold">${from}</span> To <span style="font-size:21px;color:blue;font-weight:bold">${to}</span></h1>`;
   const filterBtn = document.querySelector("#filterModal");
   document.querySelector("#filterBtn").addEventListener("click", function (e) {
     e.preventDefault();
@@ -34,33 +34,98 @@ $(document).ready(function () {
 
       columns: [
         {
-          data: "date",
+          data: "fathername",
+          render: function (data, type, row, meta) {
+            if (type === "display") {
+              data = `<a class="dropdown-list-image" href="profile?id=${
+                row.id
+              }"><img src="img/${
+                row.profile_picture == ""
+                  ? "undraw_profile.svg"
+                  : row.profile_picture
+              }"alt="user" class="img-circle rounded-circle" />
+                ${
+                  " " +
+                  row.fathername +
+                  " " +
+                  row.firstname +
+                  " " +
+                  row.lastname
+                }</a><span>`;
+            }
+            return data;
+          },
         },
         {
-          data: "preventive_repair",
+          data: "gender",
+          render: function (data, type, row, meta) {
+            if (type === "display") {
+              if (row.gender == "Male") {
+                data = "M";
+              } else if (row.gender == "Female") {
+                data = "F";
+              } else {
+                data = "";
+              }
+            }
+            return data;
+          },
         },
         {
-          data: "machine_name",
+          data: "religion_id",
+          render: function (data, type, row, meta) {
+            if (type === "display") {
+              data = `${row.religion}`;
+            }
+            return data;
+          },
+        },
+
+        {
+          data: "lebanese_phone_number",
+          render: function (data, type, row, meta) {
+            if (type === "display") {
+              data = `<a >${row.lebanese_phone_number}</a>`;
+            }
+            return data;
+          },
         },
         {
-          data: "unit_name",
+          data: "regnumber",
         },
         {
-          data: "sub_unit_name",
+          data: "emergency_number",
         },
+        // {
+        //   data: "status",
+        //   render: function (data, type, row, meta) {
+        //     if (type === "display") {
+        //       if (row.status == "Active") {
+        //         data = `<span class="label label-success">${row.status}</span>`;
+        //       } else {
+        //         data = `<span class="label label-danger">${row.status}</span>`;
+        //       }
+        //     }
+        //     return data;
+        //   },
+        // },
         {
-          data: "unit_name",
+          data: "id",
           render: function (data, type, row, meta) {
             if (type === "display") {
               data = `          <div class="dropdown no-arrow">
-                                  <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                      <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
-                                  </a>
-                                  <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
-                                      <a class="dropdown-item viewProblemBtn" id=${row.id}><i class="fas fa-eye fa-sm fa-fw mr-2 text-gray-400"></i> View Problem</a>
-                                                
-                                  </div>
-                              </div>`;
+                                <a class="dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-ellipsis-v fa-sm fa-fw text-gray-400"></i>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--fade-in" aria-labelledby="dropdownMenuLink">
+
+                                    <a class="dropdown-item"  href="student_profile.php?s_id=${row.id}"><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>View Profile</a>
+                                    <a class="dropdown-item  editBtn" id=${row.id}><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Edit Profile</a>
+                                    <a class="dropdown-item linkParentBtn" id=${row.id}><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Link Parent/Guardian</a>
+                                    <a class="dropdown-item deleteBtn"  id=${row.id}><i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>Delete Student</a>
+
+                                </div>
+                            </div>`;
             }
             return data;
           },
@@ -91,7 +156,7 @@ $(document).ready(function () {
     // 000
   };
   getTableData(
-    `includes/fetchMaintenance_report.php?machine_value=${machine_value}&repair_type=${repair_type}&from=${from}&to=${to}`
+    `includes/fetchBiodata_report.php?religion=${religion}&country=${country}&from=${from}&to=${to}`
   );
 
   // getTableData(
@@ -103,13 +168,13 @@ $(document).ready(function () {
 
   // Redraw the table based on the custom input
   //  $("#searchInput,#status,#batch");
-  $("#machine_value,#repair_type,#from,#to").bind("change", function () {
+  $("#religion,#country,#from,#to").bind("change", function () {
     // search_keywords = $("#searchInput").val().toLowerCase();
 
     from = $("#from").val();
     to = $("#to").val();
-    machine_value = $("#machine_value").val();
-    repair_type = $("#repair_type").val();
+    religion = $("#religion").val();
+    country = $("#country").val();
 
     tableRow = "";
 
@@ -118,12 +183,12 @@ $(document).ready(function () {
 
   $("#searchBtn").click(function (e) {
     e.preventDefault();
-    title.innerHTML = `<h1 class="h3 mb-0 text-gray-800">Maintenence Report From <span style="font-size:21px;color:blue;font-weight:bold">${from}</span> To <span style="font-size:21px;color:blue;font-weight:bold">${to}</span></h1>`;
+    title.innerHTML = `<h1 class="h3 mb-0 text-gray-800">Profile From <span style="font-size:21px;color:blue;font-weight:bold">${from}</span> To <span style="font-size:21px;color:blue;font-weight:bold">${to}</span></h1>`;
     $("#filterModal").modal("hide");
     $("table").DataTable().clear();
     $("table").DataTable().destroy();
     getTableData(
-      `includes/fetchMaintenance_report.php?machine_value=${machine_value}&repair_type=${repair_type}&from=${from}&to=${to}`
+      `includes/fetchBiodata_report.php?religion=${religion}&country=${country}&from=${from}&to=${to}`
     );
   });
   const tableClass = document.querySelector(".table");

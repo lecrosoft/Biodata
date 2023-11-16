@@ -467,3 +467,15 @@ div.nav {
 .activeForm {
   display: block;
 }
+.dropdown-list-image {
+  position: relative;
+  height: 2.5rem;
+  width: 2.5rem;
+  border-radius: 100%;
+
+  border: 0.125rem solid #fff;
+}
+.dropdown-list-image > img {
+  height: 2.5rem;
+  width: 2.5rem;
+}

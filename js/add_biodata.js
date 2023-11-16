@@ -14,12 +14,12 @@ const loadForm = function (method) {
     });
   };
   if (method === "POST") {
-    formUrl = "includes/insert_machine.php";
+    formUrl = "includes/insert_biodata.php";
   } else if (method === "PUT") {
     formUrl = "includes/update_machine.php";
   }
 
-  let form = document.querySelector("#machineform");
+  let form = document.querySelector("#form");
   const saveBtn = document.querySelector("#save_btn");
 
   let html;
@@ -43,16 +43,16 @@ const loadForm = function (method) {
       cache: false,
       processData: false,
       beforeSend: function () {
-        $("#maintenenceform").css("opacity", ".5");
+        $("#form").css("opacity", ".5");
         saveBtn.textContent = "Processing...";
         saveBtn.disabled = true;
       },
       success: function (response) {
         console.log(response.message);
-        if (response.message == "success") {
-          successAction("Success!", "Maintenance Successfully Added.", "info");
-          $("#maintenenceform").css("opacity", "");
-          $("#maintenenceform")[0].reset();
+        if (response.message.toLowerCase() === "success") {
+          successAction("Success!", "Record Successfully Added.", "info");
+          $("#form").css("opacity", "");
+          $("#form")[0].reset();
 
           // $("table").closest("tr").append(html);
           saveBtn.textContent = "Save";
@@ -61,17 +61,23 @@ const loadForm = function (method) {
           setTimeout(() => {
             location = location.href;
           }, 1000);
-        } else if (response.message == "update_success") {
-          successAction(
-            "Success!",
-            "Maintenance Successfully Updated.",
-            "info"
-          );
+        } else if (response.message.toLowerCase() === "update_success") {
+          successAction("Success!", "Record Successfully Updated.", "info");
           setTimeout(() => {
             location = location.href;
           }, 1000);
+        } else {
+          console.log("error");
+          successAction("Error!", `${response.message}`, "warning");
+
+          $("#form").css("opacity", "");
+          saveBtn.textContent = "Save";
+          saveBtn.disabled = false;
         }
       },
     });
   });
 };
+
+formMethod = "POST";
+loadForm(formMethod);

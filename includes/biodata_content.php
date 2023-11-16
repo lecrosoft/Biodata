@@ -24,7 +24,7 @@
         </div>
     </div>
 
-    <form action="" id="form" class="biodataForm">
+    <form action="" id="form" class="biodataForm" enctype="multipart/form-data">
         <div class="firstFormStep activeForm formStep">
             <div class="row">
                 <div class="col-md-3 mb-3">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Blood Group <span class="text-danger">*</span></label>
-                    <select name="gender" id="gender" class="form-control form-select">
+                    <select name="blood_group" id="blood_group" class="form-control form-select" required>
                         <option value="">Select Blood Group</option>
                         <option value="A+">A+</option>
                         <option value="A-">A-</option>
@@ -104,13 +104,15 @@
                     <label for="">Religion</label>
                     <select name="religion" id="religion" class="form-control form-select">
                         <option value="">Select Religion</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                        <option value="AB+">AB+</option>
+                        <?php
+                        $query = $global::fetchAll('SELECT * FROM `religion`');
+                        while ($row = mysqli_fetch_array($query)) {
+                            extract($row);
+                        ?>
+                            <option value=<?php echo $id ?>><?php echo $religion ?></option>
+                        <?php
+                        }
+                        ?>
                     </select>
                 </div>
                 <div class="col-md-3 mb-3">
@@ -139,29 +141,29 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Home Address</label>
-                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" placeholder="Enter Home Address" required>
+                    <input type="text" class="form-control" id="homeAddress" name="homeAddress" placeholder="Enter Home Address">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Residential Address</label>
-                    <input type="text" class="form-control" id="residentialAddress" name="residentialAddress" placeholder="Enter Residential Address" required>
+                    <input type="text" class="form-control" id="residentialAddress" name="residentialAddress" placeholder="Enter Residential Address">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Home Address in Nigeria</label>
-                    <input type="text" class="form-control" id="homeAddressInNigeria" name="homeAddressInNigeria" placeholder="Enter Home Address In Nigeria" required>
+                    <input type="text" class="form-control" id="homeAddressInNigeria" name="homeAddressInNigeria" placeholder="Enter Home Address In Nigeria">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="">Home Address in Lebanon</label>
-                    <input type="text" class="form-control" id="homeAddressInLebanon " name="homeAddressInLebanon" placeholder="Enter Home Address in Lebanon" required>
+                    <input type="text" class="form-control" id="homeAddressInLebanon " name="homeAddressInLebanon" placeholder="Enter Home Address in Lebanon">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Lebanese Phone Number</label>
-                    <input type="text" class="form-control" id="lebanesePhoneNumber" name="lebanesePhoneNumber" placeholder="Enter Lebanese Phone Number" required>
+                    <input type="text" class="form-control" id="lebanesePhoneNumber" name="lebanesePhoneNumber" placeholder="Enter Lebanese Phone Number">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Nigerian Phone Number</label>
-                    <input type="text" class="form-control" id="nigerianPhoneNumber" name="nigerianPhoneNumber" placeholder="Enter Nigerian Phone Number" required>
+                    <input type="text" class="form-control" id="nigerianPhoneNumber" name="nigerianPhoneNumber" placeholder="Enter Nigerian Phone Number">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Other Phone Number
@@ -185,14 +187,14 @@
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Lebanese Passport validity <span class="text-danger">*</span></label>
-                    <input type="date" class="form-control" name="lebanesePassportvalidity" id="LebanesePassportvalidity" placeholder="Enter Lebanese Passport Validity" required>
+                    <input type="date" class="form-control" name="lebanesePassportvalidity" id="lebanesePassportvalidity" placeholder="Enter Lebanese Passport Validity" required>
                 </div>
 
             </div>
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="">Nigeria Passport validity</label>
-                    <input type="date" class="form-control" id="NigeriaPassportValidity" name="NigeriaPassportValidity" placeholder="Enter Nigeria Passport Validity" required>
+                    <input type="date" class="form-control" id="nigeriaPassportValidity" name="nigeriaPassportValidity" placeholder="Enter Nigeria Passport Validity">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Registration Number <span class="text-danger">*</span></label>
@@ -200,7 +202,7 @@
                 </div>
 
                 <div class="col-md-3 mb-3">
-                    <label for="">Membership Id</label>
+                    <label for="">Membership Id <span class="text-danger">*</span></label>
                     <input type="number" class="form-control" id="membershipId" name="membershipId" placeholder="Enter Membership Id" required>
                 </div>
                 <!-- <div class="col-md-3 mb-3">
@@ -221,14 +223,24 @@
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="">Nationality <span class="text-danger">*</span></label>
-                    <select name="countries" id="countries" class="form-control form-select">
+                    <select name="countries" id="countries" class="form-control form-select" required>
                         <option value="">Select Country</option>
+                        <?php
+                        $sql = "SELECT * FROM `country`";
+                        $querySql = mysqli_query($db->con, $sql);
+                        while ($row = mysqli_fetch_assoc($querySql)) {
+                            extract($row);
+                        ?>
+                            <option value="<?php echo $id ?>"><?php echo $country_name ?></option>
+                        <?php
+                        }
+                        ?>
 
                     </select>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">State</label>
-                    <select name="states" id="states" class="form-control form-select">
+                    <select name="states" id="states" class="form-control form-select" required>
                         <option value="">Select State</option>
 
                     </select>
@@ -236,34 +248,28 @@
                 <div class="col-md-3 mb-3">
                     <label for="">City</label>
                     <select name="cities" id="cities" class="form-control form-select">
-                        <option value="">Select Religion</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                        <option value="AB+">AB+</option>
+                        <option value="">Select City</option>
+
                     </select>
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Political Affiliation</label>
-                    <input type="text" class="form-control" id="politicalAffiliation" name="politicalAffiliation" placeholder="Enter Political Affiliation" required>
+                    <input type="text" class="form-control" id="politicalAffiliation" name="politicalAffiliation" placeholder="Enter Political Affiliation">
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-3 mb-3">
                     <label for="">Political View</label>
-                    <input type="text" class="form-control" id="politicalView" name="politicalView" placeholder="Enter Political View" required>
+                    <input type="text" class="form-control" id="politicalView" name="politicalView" placeholder="Enter Political View">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Political View Id</label>
-                    <input type="number" class="form-control" id="politicalViewId" name="politicalViewId" placeholder="Enter Political View Id" required>
+                    <input type="number" class="form-control" id="politicalViewId" name="politicalViewId" placeholder="Enter Political View Id">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Election Id
                     </label>
-                    <input type="number" class="form-control" id="electionId" name="electionId" placeholder="Enter Election Id" required>
+                    <input type="number" class="form-control" id="electionId" name="electionId" placeholder="Enter Election Id">
                 </div>
                 <div class="col-md-3 mb-3">
                     <label for="">Election year
@@ -301,7 +307,7 @@
                     <div class="row">
                         <div class="col-md-12 mb-3">
                             <label for="">About Yourself</label>
-                            <textarea name="abt-yourself" id="abt-yourself" class="form-control" cols="30" rows="10" style="height: 100px;"></textarea>
+                            <textarea name="abt_yourself" id="abt_yourself" class="form-control" cols="30" rows="10" style="height: 100px;"></textarea>
                         </div>
                     </div>
                 </div>
@@ -364,7 +370,7 @@
 
             <div class="butonDiv">
                 <button class="btn btn-primary previous">Previous</button>
-                <button class="btn btn-primary" type="submit">Submit</button>
+                <button id="save_btn" class="btn btn-primary" type="submit">Submit</button>
 
             </div>
         </div>
